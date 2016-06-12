@@ -20,9 +20,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/1.9/howto/deployment/checklist/
 
 
-from .local_settings import SECRET_KEY  # noqa
+from .base_secrets import SECRET_KEY  # noqa
 
-from .local_settings import DEBUG  # noqa
+from .base_secrets import DEBUG  # noqa
 
 ALLOWED_HOSTS = []
 
@@ -72,7 +72,7 @@ WSGI_APPLICATION = 'besttaxi.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/1.9/ref/settings/#databases
-from .local_settings import DATABASES  # noqa
+from .base_secrets import DATABASES  # noqa
 
 
 # Password validation
