@@ -1,0 +1,7 @@
+Django==1.9.7
+django-extensions==1.6.7
+psycopg2==2.6.1
+PyYAML==3.11
+requests==2.10.0
+six==1.10.0
+uber-rides==0.2.4
