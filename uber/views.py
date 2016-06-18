@@ -48,6 +48,7 @@ def get_directions_data(request):
             '?origin=' + origin + '&destination=' + destination + \
             '&alternatives=true&key=' + GOOGLE_MAPS_DIRECTIONS_API_KEY
         directions_data = requests.get(directions_url)
+        print(directions_url)
         prices = get_route_price_map(directions_data)
         return JsonResponse(prices, status=200, safe=False)
     else:
@@ -64,11 +65,17 @@ def get_route_price_map(directions_data):
         route_ubers = {}
         for leg in route.get('legs'):
             distance += leg.get('distance').get('value')
-            duration += leg.get('distance').get('value')
+            duration += leg.get('duration').get('value')
         for key, value in city.items():
+            print('distance:', distance)
+            print('duration:', duration)
+            print('math:', math.ceil(duration/60.0))
             route_price = value['base'] + \
-                    (math.ceil(duration/60.0) * value['per_min']) + \
-                    ((distance/1000.0) * value['per_km'])
+                (math.ceil(duration/60.0) * value['per_min']) + \
+                ((distance/1000.0) * value['per_km'])
+            if value['min_fare'] > route_price:
+                route_price = value['min_fare']
             route_ubers[key] = route_price
+        route_ubers['summary'] = route.get('summary')
         route_prices.append(route_ubers)
     return route_prices
