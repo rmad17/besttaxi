@@ -7,9 +7,10 @@
 # Distributed under terms of the MIT license.
 
 from django.conf.urls import url
-from .views import get_availability
+from .views import get_availability, get_directions_data
 
 app_name = 'uber'
 urlpatterns = [
     url(r'^availability/', get_availability),
+    url(r'^directions/', get_directions_data),
 ]
