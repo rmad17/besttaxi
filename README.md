@@ -1,3 +1,4 @@
+[![Stories in Ready](https://badge.waffle.io/rmad17/besttaxi.png?label=ready&title=Ready)](https://waffle.io/rmad17/besttaxi)
 # besttaxi
 #### Which taxi should you choose?
 
