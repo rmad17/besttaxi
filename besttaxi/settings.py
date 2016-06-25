@@ -30,6 +30,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'rest_framework',
     'django_extensions',
     'uber.apps.UberConfig',
     'django.contrib.admin',
